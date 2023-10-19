@@ -1,12 +1,12 @@
 package core
 
 import (
-	"github.com/dzwiedz90/go-public-game-demo/models"
+	"github.com/dzwiedz90/go-public-game-demo/models/character"
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
 var (
-	Character = models.Character{}
+	Character = character.Character{}
 )
 
 func LoadMusic(stream string) rl.Music {

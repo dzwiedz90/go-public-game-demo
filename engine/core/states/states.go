@@ -8,5 +8,6 @@ type GameState struct {
 }
 
 var (
-	CurrentGameState GameState
+	CurrentGameState  GameState
+	PreviousGameState GameState
 )

@@ -23,10 +23,6 @@ func main() {
 
 		rl.EndDrawing()
 	}
-
-	// menu.MainMenuOLD()
-	// loadFirstMap(e)
-	// loadSecondMap(e)
 }
 
 // func loadFirstMap(e *engine.Engine) {

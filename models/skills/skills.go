@@ -1,29 +1,15 @@
-package models
+package skills
 
-type Character struct {
-	Name                    string
-	Race                    string
-	Class                   string
-	Character               string
-	Level                   int
-	ExperiencePoints        int
-	ProficiencyBonus        int
-	PassiveWisdomPerception int
-	ArmorClass              int
-	Initiative              int
-	Speed                   int
-	CurrentHitPoint         int
-	MaxHitPoints            int
-	TemporaryHitPoints      int
-	HitPointDie             int
-	Inventory               []Item
-	InventoryCapacity       int
-	InventoryWeight         float32
-	AttackAndMagic          AttackAndMagic
-	FeaturesAndTraits       FeaturesAndTraits
-	Proficiencies           Proficiencies
-	Spells                  Spells
-}
+type Ability string
+
+var (
+	Strength     Ability = "Sila"
+	Dexteriety   Ability = "Zrecznosc"
+	Constitution Ability = "Kondycja"
+	Ingelligence Ability = "Inteligencja"
+	Wisdom       Ability = "Madrosc"
+	Charisma     Ability = "Charyzma"
+)
 
 // Abilities Cechy
 type Abilities struct {
@@ -77,18 +63,13 @@ type Skills struct {
 
 // SavingThrows Rzuty obronne
 type SavingThrows struct {
-	Strength                int
-	StrengthProficiency     bool
-	Dexteriety              int
-	DexterietyProficiency   bool
-	Constitution            int
-	ConstitutionProficiency bool
-	Intelligence            int
-	IntelligenceProficiency bool
-	Wisdom                  int
-	WisdomProficiency       bool
-	Charisma                int
-	CharismaProficiency     bool
+	ThrowsWithProficiency []Ability
+	Strength              int
+	Dexteriety            int
+	Constitution          int
+	Intelligence          int
+	Wisdom                int
+	Charisma              int
 }
 
 // AttackAndMagic Ataki i magia
