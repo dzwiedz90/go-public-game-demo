@@ -8,8 +8,11 @@ import (
 type Character struct {
 	Name                    string
 	Race                    string
+	Sex                     string
 	Class                   string
 	Character               string
+	Abilities               skills.Abilities
+	Skills                  skills.Skills
 	Level                   int
 	ExperiencePoints        int
 	ProficiencyBonus        int

@@ -7,7 +7,9 @@ import (
 
 	"github.com/dzwiedz90/go-public-game-demo/constants"
 	"github.com/dzwiedz90/go-public-game-demo/dices"
+	"github.com/dzwiedz90/go-public-game-demo/engine/core"
 	"github.com/dzwiedz90/go-public-game-demo/engine/core/states"
+	"github.com/dzwiedz90/go-public-game-demo/models/class"
 	"github.com/dzwiedz90/go-public-game-demo/models/skills"
 )
 
@@ -47,9 +49,9 @@ var (
 
 			rl.UpdateMusicStream(*musicStream)
 
-			input()
+			inputAbilities()
 
-			draw()
+			drawAbilitiesOutput()
 		},
 		OnExit: func() {
 
@@ -57,20 +59,20 @@ var (
 	}
 )
 
-func input() {
-	if rl.IsKeyPressed(rl.KeyDown) {
+func inputAbilities() {
+	if rl.IsKeyPressed(rl.KeyDown) && !stageFinished {
 		if throwsCounter == 5 {
 			throwsCounter = 0
 		} else {
 			throwsCounter += 1
 		}
-	} else if rl.IsKeyPressed(rl.KeyUp) {
+	} else if rl.IsKeyPressed(rl.KeyUp) && !stageFinished {
 		if throwsCounter == 0 {
 			throwsCounter = 5
 		} else {
 			throwsCounter -= 1
 		}
-	} else if rl.IsKeyPressed(rl.KeyP) {
+	} else if rl.IsKeyPressed(rl.KeyP) && !stageFinished {
 		if throws[throwsCounter] != 0 && retake > 0 {
 			throws[throwsCounter] = drawAbility()
 			retake -= 1
@@ -89,7 +91,21 @@ func input() {
 				}
 			}
 		} else {
-			// nowy stan
+			core.Character.Abilities.Strength = items[0].Value
+			core.Character.Abilities.Dexteriety = items[1].Value
+			core.Character.Abilities.Constitution = items[2].Value
+			core.Character.Abilities.Ingelligence = items[3].Value
+			core.Character.Abilities.Wisdom = items[4].Value
+			core.Character.Abilities.Charisma = items[5].Value
+
+			core.Character.PassiveWisdomPerception = 10 + constants.ModifierFromAbility[core.Character.Abilities.Wisdom]
+
+			core.Character.MaxHitPoints = class.ClassHitPointsDie[core.Character.Class] + constants.ModifierFromAbility[core.Character.Abilities.Constitution]
+			core.Character.CurrentHitPoint = core.Character.MaxHitPoints
+			core.Character.TemporaryHitPoints = 0
+
+			states.CurrentGameState = NewGameSkillsState
+			NewGameSkillsState.OnEnter()
 		}
 	} else if rl.IsKeyPressed(rl.KeyEscape) {
 		if stageFinished {
@@ -112,7 +128,7 @@ func input() {
 	}
 }
 
-func draw() {
+func drawAbilitiesOutput() {
 	rl.DrawText("Tworzenie postaci", 25, 25, constants.FontSize, rl.DarkGray)
 	var selectedItem string
 
@@ -135,8 +151,9 @@ func draw() {
 		}
 	}
 
-	rl.DrawText("Ustaw wartosc dla "+selectedItem+" [ENTER]", 500, 25, constants.FontSize, rl.DarkGray)
-	rl.DrawText("Przerzuc "+fmt.Sprint(retake)+" wartosci [P]", 500, 75, constants.FontSize, rl.DarkGray)
+	rl.DrawText("Cechy", 500, 25, constants.FontSize, rl.DarkGray)
+	rl.DrawText("Ustaw wartosc dla "+selectedItem+" [ENTER]", 700, 25, constants.FontSize, rl.DarkGray)
+	rl.DrawText("Przerzuc "+fmt.Sprint(retake)+" wartosci [P]", 700, 75, constants.FontSize, rl.DarkGray)
 
 	if stageFinished {
 		rl.DrawText("Cechy rozdane", 100, 500, constants.FontSize, rl.DarkGray)

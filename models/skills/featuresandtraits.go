@@ -1,9 +1,9 @@
 package skills
 
-// Z klasy lub przedmiotów
+// Korzyści - z klasy lub przedmiotów
 type Feature struct {
 }
 
-// Z rasy lub przedmiotów
+// Zdolności - z rasy lub przedmiotów
 type Trait struct {
 }

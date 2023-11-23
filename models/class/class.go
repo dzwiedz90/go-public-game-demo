@@ -116,4 +116,19 @@ var (
 		ClassWarlock:   {ThrowsWithProficiency: []skills.Ability{skills.Wisdom, skills.Charisma}},
 		ClassWizard:    {ThrowsWithProficiency: []skills.Ability{skills.Ingelligence, skills.Wisdom}},
 	}
+
+	ClassSkills = map[string][]string{
+		ClassBarbarian: {"2", "Atletyka", "Opieka nad zwierzetami", "Percepcja", "Przyroda", "Sztuka przetrwania", "Zastraszanie"},
+		ClassBard:      {"3", "Akrobatyka", "Atletyka", "Historia", "Intuicja", "Medycyna", "Opieka nad zwierzetami", "Oszustwo", "Percepcja", "Perswazja", "Przyroda", "Religia", "Skradanie sie", "Sztuka przetrwania", "Sledztwo", "Wiedza tajemna", "Wystepy", "Zastraszanie", "Zwinne dlonie"},
+		ClassCleric:    {"2", "Historia", "Intuicja", "Medycyna", "Perswazja", "Religia"},
+		ClassDruid:     {"2", "Intuicja", "Medycyna", "Opieka nad zwierzetami", "Percepcja", "Przyroda", "Religia", "Sztuka przetrwania", "Wiedza tajemna"},
+		ClassFighter:   {"2", "Akrobatyka", "Atletyka", "Historia", "Intuicja", "Opieka nad zwierzetami", "Percepcja", "Sztuka przetrwania", "Zastraszanie"},
+		ClassMonk:      {"2", "Akrobatyka", "Atletyka", "Historia", "Intuicja", "Religia", "Skradanie sie"},
+		ClassPaladin:   {"2", "Atletyka", "Intuicja", "Medycyna", "Perswazja", "Religia", "Zastraszanie"},
+		ClassRanger:    {"3", "Atletyka", "Intuicja", "Opieka nad zwierzetami", "Percepcja", "Przyroda", "Sztuka przetrwania", "Skradanie sie", "Sledztwo"},
+		ClassRogue:     {"4", "Akrobatyka", "Atletyka", "Intuicja", "Oszustwo", "Percepcja", "Perswazja", "Skradanie sie", "Sledztwo", "Występy", "Zastraszanie", "Zwinne dlonie"},
+		ClassSorcerer:  {"2", "Intuicja", "Oszustwo", "Perswazja", "Religia", "Wiedza tajemna", "Zastraszanie"},
+		ClassWarlock:   {"2", "Historia", "Oszustwo", "Przyroda", "Religia", "Sledztwo", "Wiedza tajemna", "Zastraszanie"},
+		ClassWizard:    {"2", "Historia", "Intuicja", "Medcyna", "Religia", "Sledztwo", "Wiedza tajemna"},
+	}
 )

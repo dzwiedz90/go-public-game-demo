@@ -4,7 +4,6 @@ import (
 	rl "github.com/gen2brain/raylib-go/raylib"
 
 	"github.com/dzwiedz90/go-public-game-demo/constants"
-	"github.com/dzwiedz90/go-public-game-demo/engine/core"
 	"github.com/dzwiedz90/go-public-game-demo/engine/core/states"
 	"github.com/dzwiedz90/go-public-game-demo/menu/newgame"
 	"github.com/dzwiedz90/go-public-game-demo/models/menumodels"
@@ -22,7 +21,7 @@ var (
 	MenuState = states.GameState{
 		StateName: "MenuState",
 		OnEnter: func() {
-			musicStream = core.LoadMusic("resources/music/db.mp3")
+			// musicStream = core.LoadMusic("resources/music/db.mp3")
 		},
 		OnUpdate: func() {
 			rl.ClearBackground(rl.NewColor(23, 20, 22, 1))

@@ -1,5 +1,7 @@
 package skills
 
+// DC - ST
+
 type Ability string
 
 var (
@@ -24,41 +26,59 @@ type Abilities struct {
 // Skills Umiejętności
 type Skills struct {
 	// Akrobatyka
-	Actobatics int
+	Actobatics            int
+	AcrobaticsProficiency bool
 	// Atletyka
-	Athletics int
+	Athletics            int
+	AthleticsProficiency bool
 	// Historia
-	History int
+	History            int
+	HistoryProficiency bool
 	// Intuicja
-	Insight int
+	Insight            int
+	InsightProficiency bool
 	// Medycyna
-	Medicine int
+	Medicine            int
+	MedicineProficiency bool
 	// Opieka nad zwierzętami
-	AnimalHandling int
+	AnimalHandling            int
+	AnimalHandlingProficiency bool
 	// Oszustwo
-	Deception int
+	Deception            int
+	DeceptionProficiency bool
 	// Percepcja
-	Perception int
+	Perception            int
+	PerceptionProficiency bool
 	// Perswazja
-	Persuasion int
+	Persuasion            int
+	PersuasionProficiency bool
 	// Przyroda
-	Nature int
+	Nature            int
+	NatureProficiency bool
 	// Religia
-	Religion int
+	Religion            int
+	ReligionProficiency bool
 	// Skradanie się
-	Stealth int
+	Stealth            int
+	StealthProficiency bool
 	// Sztuka przetrwania
-	Survival int
+	Survival            int
+	SurvivalProficiency bool
 	// Śledztwo
-	Investigation int
+	Investigation            int
+	InvestigationProficiency bool
 	// Wiedza tajemna
-	Arcana int
+	Arcana            int
+	ArcanaProficiency bool
 	// Wystepy
-	Performance int
+	Performance            int
+	PerformanceProficiency bool
 	// Zastraszanie
-	Intimidation int
+	Intimidation            int
+	IntimidationProficiency bool
 	// Zwinne dłonie
-	SleightOfHand int
+	SleightOfHand            int
+	SleightOfHandProficiency bool
 }
 
 // SavingThrows Rzuty obronne
