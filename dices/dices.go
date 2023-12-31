@@ -31,6 +31,11 @@ func RollD8() int {
 	return rollDice(8)
 }
 
+// RollD8 roll's D10 dice
+func RollD10() int {
+	return rollDice(10)
+}
+
 // RollD12 roll's D12 dice
 func RollD12() int {
 	return rollDice(12)

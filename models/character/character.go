@@ -1,7 +1,6 @@
 package character
 
 import (
-	"github.com/dzwiedz90/go-public-game-demo/models"
 	"github.com/dzwiedz90/go-public-game-demo/models/skills"
 )
 
@@ -25,7 +24,8 @@ type Character struct {
 	TemporaryHitPoints      int
 	HitPointDie             int
 	SavingThrows            skills.SavingThrows
-	Inventory               []models.Item
+	Gold                    int
+	Inventory               []interface{}
 	InventoryCapacity       int
 	InventoryWeight         float32
 	AttackAndMagic          skills.AttackAndMagic

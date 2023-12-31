@@ -131,4 +131,34 @@ var (
 		ClassWarlock:   {"2", "Historia", "Oszustwo", "Przyroda", "Religia", "Sledztwo", "Wiedza tajemna", "Zastraszanie"},
 		ClassWizard:    {"2", "Historia", "Intuicja", "Medcyna", "Religia", "Sledztwo", "Wiedza tajemna"},
 	}
+
+	ClassWeapons = map[string][]string{
+		ClassBarbarian: {"topor_dwureczny", "mlot_bojowy"},
+		ClassBard:      {"rapier", "kusza_lekka"},
+		ClassCleric:    {"mlot_bojowy", "kusza_lekka"},
+		ClassDruid:     {"maczuga", "sejmitar"},
+		ClassFighter:   {"miecz_dlugi", "dlugi_luk"},
+		ClassMonk:      {},
+		ClassPaladin:   {"miecz_dlugi", "mlot_bojowy"},
+		ClassRanger:    {"dlugi_luk", "rapier"},
+		ClassRogue:     {"rapier", "krotki_luk"},
+		ClassSorcerer:  {"kusza_lekka", "sztylet"},
+		ClassWarlock:   {"kusza_lekka", "sztylet"},
+		ClassWizard:    {"drag"},
+	}
+
+	ClassArmor = map[string][]string{
+		ClassBarbarian: {"skorznia"},
+		ClassBard:      {"skorznia"},
+		ClassCleric:    {"kolczuga", "tarcza"},
+		ClassDruid:     {"skorznia", "tarcza"},
+		ClassFighter:   {"kolczuga", "tarcza"},
+		ClassMonk:      {},
+		ClassPaladin:   {"kolczuga", "tarcza"},
+		ClassRanger:    {"zbroja_skorzana"},
+		ClassRogue:     {"skorznia"},
+		ClassSorcerer:  {},
+		ClassWarlock:   {},
+		ClassWizard:    {},
+	}
 )

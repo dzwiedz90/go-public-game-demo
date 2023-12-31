@@ -11,6 +11,7 @@ import (
 	"github.com/dzwiedz90/go-public-game-demo/models/alignment"
 	"github.com/dzwiedz90/go-public-game-demo/models/class"
 	"github.com/dzwiedz90/go-public-game-demo/models/race"
+	"github.com/dzwiedz90/go-public-game-demo/utils"
 )
 
 type letter struct {
@@ -189,7 +190,7 @@ func nameStageInput() {
 func raceStageInput() {
 	rl.DrawText("Press enter to choose", 500, 100, constants.FontSize, rl.DarkGray)
 
-	lines := wrapText(race.RacesDescription[raceCounter])
+	lines := utils.WrapText(race.RacesDescription[raceCounter])
 	x := int32(500)
 	y := int32(200)
 	for _, line := range lines {
@@ -199,7 +200,7 @@ func raceStageInput() {
 
 	y += 50
 	rl.DrawText("Cechy rasy:", x, y, constants.FontSize, rl.White)
-	raceAbilitiesLines := wrapText(race.RacesAbilities[raceCounter])
+	raceAbilitiesLines := utils.WrapText(race.RacesAbilities[raceCounter])
 	y += 50
 	for _, line := range raceAbilitiesLines {
 		rl.DrawText(line, x, y, constants.FontSize, rl.White)
@@ -231,7 +232,7 @@ func raceStageInput() {
 func classStageInput() {
 	rl.DrawText("Press enter to choose", 500, 100, constants.FontSize, rl.DarkGray)
 
-	lines := wrapText(class.ClassDescription[classCounter])
+	lines := utils.WrapText(class.ClassDescription[classCounter])
 	x := int32(500)
 	y := int32(200)
 	for _, line := range lines {
@@ -241,7 +242,7 @@ func classStageInput() {
 
 	y += 50
 	rl.DrawText("Cechy klasy:", x, y, constants.FontSize, rl.White)
-	classAbilitiesLines := wrapText(class.ClassAbilities[classCounter])
+	classAbilitiesLines := utils.WrapText(class.ClassAbilities[classCounter])
 	y += 50
 	for _, line := range classAbilitiesLines {
 		rl.DrawText(line, x, y, constants.FontSize, rl.White)
@@ -274,7 +275,7 @@ func classStageInput() {
 func characterStageInput() {
 	rl.DrawText("Press enter to choose", 500, 100, constants.FontSize, rl.DarkGray)
 
-	lines := wrapText(alignment.AlignementDescription[characterCounter])
+	lines := utils.WrapText(alignment.AlignementDescription[characterCounter])
 	x := int32(500)
 	y := int32(200)
 	for _, line := range lines {
@@ -327,32 +328,4 @@ func drawAlphabet() {
 
 func SetNewGameMusicStream(musicStreamIn *rl.Music) {
 	musicStream = musicStreamIn
-}
-
-func wrapText(text string) []string {
-	words := strings.Fields(text)
-	var lines []string
-	currentLine := ""
-
-	for _, word := range words {
-		testLine := currentLine
-		if testLine != "" {
-			testLine += " "
-		}
-		testLine += word
-
-		textSize := rl.MeasureText(testLine, constants.FontSize)
-		if word == "/n" {
-			lines = append(lines, currentLine)
-			currentLine = ""
-		} else if textSize > 1000 {
-			lines = append(lines, currentLine)
-			currentLine = word
-		} else {
-			currentLine = testLine
-		}
-	}
-
-	lines = append(lines, currentLine)
-	return lines
 }

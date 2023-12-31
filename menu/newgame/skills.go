@@ -5,6 +5,7 @@ import (
 	"strconv"
 
 	"github.com/dzwiedz90/go-public-game-demo/constants"
+	"github.com/dzwiedz90/go-public-game-demo/dices"
 	"github.com/dzwiedz90/go-public-game-demo/engine/core"
 	"github.com/dzwiedz90/go-public-game-demo/engine/core/states"
 	"github.com/dzwiedz90/go-public-game-demo/models/class"
@@ -20,7 +21,7 @@ var (
 	stageDone                 = false
 
 	NewGameSkillsState = states.GameState{
-		StateName: "AbilitiesState",
+		StateName: "Skills State",
 		OnEnter: func() {
 			mkAvailableSkillsSelections()
 			skillsItems = mkSkillItems()
@@ -56,8 +57,8 @@ func inputSkills() {
 	} else if rl.IsKeyPressed(rl.KeyEnter) {
 		if stageDone {
 			saveSkills()
-			states.CurrentGameState = NewGameAncestryState
-			NewGameAncestryState.OnEnter()
+			states.CurrentGameState = NewGameSpellsState
+			NewGameSpellsState.OnEnter()
 		} else {
 			if skillsItems[skillsCounter].isSelected {
 				skillsItems[skillsCounter].isSelected = false
@@ -210,4 +211,9 @@ func saveSkills() {
 			core.Character.Skills.SleightOfHandProficiency = true
 		}
 	}
+
+	for i := 0; i <= 5; i++ {
+		core.Character.Gold += dices.RollD10()
+	}
+
 }

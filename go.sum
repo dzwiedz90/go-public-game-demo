@@ -1,2 +1,4 @@
 github.com/gen2brain/raylib-go/raylib v0.0.0-20230826160040-f770ca098119 h1:sabx//RhPtejGJAPC0TLmUeP8OoNK93qaUy4i2f/fo0=
 github.com/gen2brain/raylib-go/raylib v0.0.0-20230826160040-f770ca098119/go.mod h1:AwtGA3aTtYdezNxEVbfchaLw/z+CuRDh2Mlxy0FbBro=
+github.com/mattn/go-sqlite3 v1.14.19 h1:fhGleo2h1p8tVChob4I9HpmVFIAkKGpiukdrgQbWfGI=
+github.com/mattn/go-sqlite3 v1.14.19/go.mod h1:2eHXhiwb8IkHr+BDWZGa96P6+rkvnG63S2DGjv9HUNg=
