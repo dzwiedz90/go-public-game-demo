@@ -4,13 +4,16 @@ import (
 	"fmt"
 	"strconv"
 
+	rl "github.com/gen2brain/raylib-go/raylib"
+
 	"github.com/dzwiedz90/go-public-game-demo/constants"
+	"github.com/dzwiedz90/go-public-game-demo/db/items"
 	"github.com/dzwiedz90/go-public-game-demo/dices"
 	"github.com/dzwiedz90/go-public-game-demo/engine/core"
 	"github.com/dzwiedz90/go-public-game-demo/engine/core/states"
+	"github.com/dzwiedz90/go-public-game-demo/models"
 	"github.com/dzwiedz90/go-public-game-demo/models/class"
 	"github.com/dzwiedz90/go-public-game-demo/utils"
-	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
 var (
@@ -216,4 +219,41 @@ func saveSkills() {
 		core.Character.Gold += dices.RollD10()
 	}
 
+	for _, w := range class.ClassWeapons[core.Character.Class] {
+		wp, err := items.GetItemById(w)
+		if err != nil {
+			fmt.Printf("failed to get weapon by id: %v", err)
+		}
+		we, _ := wp.(models.Weapon)
+		weapon := models.Weapon{
+			ID:          we.ID,
+			Name:        we.Name,
+			Damage:      we.Damage,
+			DamageType:  we.DamageType,
+			IsMelee:     we.IsMelee,
+			IsRanged:    we.IsRanged,
+			IsTwoHanded: we.IsTwoHanded,
+			IsFinesse:   we.IsFinesse,
+		}
+
+		core.Character.Inventory = append(core.Character.Inventory, weapon)
+	}
+
+	for _, a := range class.ClassArmor[core.Character.Class] {
+		ar, err := items.GetItemById(a)
+		if err != nil {
+			fmt.Printf("failed to get weapon by id: %v", err)
+		}
+		arm, _ := ar.(models.Armor)
+		armor := models.Armor{
+			ID:               arm.ID,
+			Name:             arm.Name,
+			Type:             arm.Type,
+			AC:               arm.AC,
+			MaxDexMod:        arm.MaxDexMod,
+			RequiredStrength: arm.RequiredStrength,
+		}
+
+		core.Character.Inventory = append(core.Character.Inventory, armor)
+	}
 }

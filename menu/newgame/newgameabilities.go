@@ -28,7 +28,7 @@ var (
 
 	stageFinished = false
 
-	items = []item{
+	abilitiesItems = []item{
 		{Text: skills.Strength, Value: 0, PositionX: 100, PositionY: 150, IsSelected: true},
 		{Text: skills.Dexteriety, Value: 0, PositionX: 100, PositionY: 200, IsSelected: false},
 		{Text: skills.Constitution, Value: 0, PositionX: 100, PositionY: 250, IsSelected: false},
@@ -80,23 +80,23 @@ func inputAbilities() {
 	} else if rl.IsKeyPressed(rl.KeyEnter) {
 		if !stageFinished {
 			if throws[throwsCounter] != 0 {
-				items[itemCounter].Value = throws[throwsCounter]
-				items[itemCounter].IsSelected = false
+				abilitiesItems[itemCounter].Value = throws[throwsCounter]
+				abilitiesItems[itemCounter].IsSelected = false
 				throws[throwsCounter] = 0
 				if itemCounter >= 5 {
 					stageFinished = true
 				} else {
 					itemCounter += 1
-					items[itemCounter].IsSelected = true
+					abilitiesItems[itemCounter].IsSelected = true
 				}
 			}
 		} else {
-			core.Character.Abilities.Strength = items[0].Value
-			core.Character.Abilities.Dexteriety = items[1].Value
-			core.Character.Abilities.Constitution = items[2].Value
-			core.Character.Abilities.Ingelligence = items[3].Value
-			core.Character.Abilities.Wisdom = items[4].Value
-			core.Character.Abilities.Charisma = items[5].Value
+			core.Character.Abilities.Strength = abilitiesItems[0].Value
+			core.Character.Abilities.Dexteriety = abilitiesItems[1].Value
+			core.Character.Abilities.Constitution = abilitiesItems[2].Value
+			core.Character.Abilities.Ingelligence = abilitiesItems[3].Value
+			core.Character.Abilities.Wisdom = abilitiesItems[4].Value
+			core.Character.Abilities.Charisma = abilitiesItems[5].Value
 
 			core.Character.PassiveWisdomPerception = 10 + constants.ModifierFromAbility[core.Character.Abilities.Wisdom]
 
@@ -116,12 +116,12 @@ func inputAbilities() {
 
 			throws = throws[:0]
 
-			for i := range items {
-				items[i].Value = 0
-				items[i].IsSelected = false
+			for i := range abilitiesItems {
+				abilitiesItems[i].Value = 0
+				abilitiesItems[i].IsSelected = false
 			}
 
-			items[0].IsSelected = true
+			abilitiesItems[0].IsSelected = true
 
 			drawAbilities()
 		}
@@ -132,7 +132,7 @@ func drawAbilitiesOutput() {
 	rl.DrawText("Tworzenie postaci", 25, 25, constants.FontSize, rl.DarkGray)
 	var selectedItem string
 
-	for _, item := range items {
+	for _, item := range abilitiesItems {
 		if item.IsSelected {
 			rl.DrawText(string(item.Text), item.PositionX, item.PositionY, constants.FontSize, rl.White)
 			rl.DrawText(fmt.Sprint(item.Value), item.PositionX+300, item.PositionY, constants.FontSize, rl.White)
@@ -145,9 +145,9 @@ func drawAbilitiesOutput() {
 
 	for i, val := range throws {
 		if i == throwsCounter {
-			rl.DrawText(fmt.Sprint(val), 500, items[i].PositionY, constants.FontSize, rl.White)
+			rl.DrawText(fmt.Sprint(val), 500, abilitiesItems[i].PositionY, constants.FontSize, rl.White)
 		} else {
-			rl.DrawText(fmt.Sprint(val), 500, items[i].PositionY, constants.FontSize, rl.DarkGray)
+			rl.DrawText(fmt.Sprint(val), 500, abilitiesItems[i].PositionY, constants.FontSize, rl.DarkGray)
 		}
 	}
 

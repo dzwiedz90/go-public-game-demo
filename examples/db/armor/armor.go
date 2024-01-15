@@ -73,11 +73,11 @@ func main() {
 		MaxDexMod        int
 		RequiredStrength int
 	}{
-		{"kolczuga", "Kolczuga", "ciezki", 16, 0, 13},
-		{"skorznia", "Skorznia", "lekki", 11, 100, 0},
-		{"tarcza", "Tarcza", "tarcza", 2, 0, 0},
-		{"zbroja_luskowa", "Zbroja luskowa", "sredni", 14, 2, 0},
-		{"zbroja_skorzana", "Zbroja skorzana", "sredni", 12, 2, 0},
+		{"ar_kolczuga", "Kolczuga", "ciezki", 16, 0, 13},
+		{"ar_skorznia", "Skorznia", "lekki", 11, 100, 0},
+		{"ar_tarcza", "Tarcza", "tarcza", 2, 0, 0},
+		{"ar_zbroja_luskowa", "Zbroja luskowa", "sredni", 14, 2, 0},
+		{"ar_zbroja_skorzana", "Zbroja skorzana", "sredni", 12, 2, 0},
 	}
 
 	for _, armor := range armorData {
